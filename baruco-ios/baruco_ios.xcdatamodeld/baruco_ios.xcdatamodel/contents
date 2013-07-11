@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1487" systemVersion="12A269" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Agenda" representedClassName="Agenda" parentEntity="BarucoObject" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isEvent" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="sDateTime" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sDay" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sTime" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="subtitle" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="day" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ConferenceDay" inverseName="agendas" inverseEntity="ConferenceDay" syncable="YES"/>
+        <relationship name="speakers" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Speaker" inverseName="agendas" inverseEntity="Speaker" syncable="YES"/>
+    </entity>
+    <entity name="BarucoObject" representedClassName="BarucoObject" isAbstract="YES" syncable="YES">
+        <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="objectId" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date" syncable="YES"/>
+    </entity>
+    <entity name="ConferenceDay" representedClassName="ConferenceDay" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="agendas" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Agenda" inverseName="day" inverseEntity="Agenda" syncable="YES"/>
+    </entity>
+    <entity name="News" representedClassName="News" parentEntity="BarucoObject" syncable="YES">
+        <attribute name="body" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="createdAtInt" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="imageUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isShort" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isUnread" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="sDateTime" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sDayMonth" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sHour" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Speaker" representedClassName="Speaker" parentEntity="BarucoObject" syncable="YES">
+        <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="github" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="imageUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="info" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tagline" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="twitter" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="website" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="agendas" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Agenda" inverseName="speakers" inverseEntity="Agenda" syncable="YES"/>
+    </entity>
+    <entity name="Sponsor" representedClassName="BarucoObject" syncable="YES">
+        <attribute name="image" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="imageUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="website" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Agenda" positionX="0" positionY="0" width="128" height="195"/>
+        <element name="BarucoObject" positionX="0" positionY="0" width="128" height="90"/>
+        <element name="ConferenceDay" positionX="0" positionY="0" width="128" height="75"/>
+        <element name="News" positionX="0" positionY="0" width="128" height="195"/>
+        <element name="Speaker" positionX="0" positionY="0" width="128" height="195"/>
+        <element name="Sponsor" positionX="0" positionY="0" width="128" height="105"/>
+    </elements>
+</model>
